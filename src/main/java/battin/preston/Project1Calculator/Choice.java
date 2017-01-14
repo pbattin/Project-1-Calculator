@@ -2,10 +2,7 @@ package battin.preston.Project1Calculator;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-
-import static battin.preston.Project1Calculator.Calculator.currentVal;
-import static battin.preston.Project1Calculator.Calculator.intialVal;
+import static battin.preston.Project1Calculator.Display.*;
 @SuppressWarnings("Duplicates")
 
 /**
@@ -13,83 +10,154 @@ import static battin.preston.Project1Calculator.Calculator.intialVal;
  */
 public class Choice {
 
+    static Scanner calcBy = new Scanner(System.in);
+    static double mr = 0 ;
+
+    static private void selectAddition(){
+        System.out.println("By what number would you like to add?");
+        do {
+            try {
+                currentVal = calcBy.nextDouble();
+                validation = true;
+            } catch (InputMismatchException notANum) {
+                validation = false;
+                System.out.println("Enter a number!");
+                calcBy.nextLine();
+            }
+        } while (!validation);
+
+        CalculateBasicFunctions.CalcAddtion(currentVal, intialVal);
+        displayinfoAfterCalculating();
+    }
+    static private void selectSubtraction(){
+
+        System.out.println("By what number would you like to subtract?");
+        do {
+            try {
+                currentVal = calcBy.nextDouble();
+                validation = true;
+            } catch (InputMismatchException notANum) {
+                validation = false;
+                System.out.println("Enter a number!");
+                calcBy.nextLine();
+            }
+        } while (!validation);
+
+        CalculateBasicFunctions.CalcSubtraction(currentVal, intialVal);
+        displayinfoAfterCalculating();
+    }
+    static private  void selectDivision(){
+
+        System.out.println("By what number would you like to divide?");
+        do {
+
+            try {
+                currentVal = calcBy.nextDouble();
+                while(currentVal == 0){
+                    System.out.println("ERROR: CANNOT DIVIDE BY ZERO");
+                    System.out.println("Enter another number:");
+                    currentVal = calcBy.nextDouble();
+                }
+                validation = true;
+            } catch (InputMismatchException notANum) {
+                validation = false;
+                System.out.println("Enter a number!");
+                calcBy.nextLine();
+            }
+        } while (!validation);
+        CalculateBasicFunctions.CalcDivision(currentVal, intialVal);
+        displayinfoAfterCalculating();
+    }
+    static private void selectMultiply(){
+
+        System.out.println("By what number would you like to multiply by?");
+        do {
+            try {
+                currentVal = calcBy.nextDouble();
+                validation = true;
+            } catch (InputMismatchException notANum) {
+                validation = false;
+                System.out.println("Enter a number!");
+                calcBy.nextLine();
+            }
+        } while (!validation);
+        CalculateBasicFunctions.CalcMultiplication(currentVal, intialVal);
+        displayinfoAfterCalculating();
+    }
+
     static public void Pick(String option) {
-        Scanner calcBy = new Scanner(System.in);
         boolean validation = false;
 
         switch (option) {
             case "Add": {
-                System.out.println("By what number would you like to add?");
-                do {
-                    try {
-                        currentVal = calcBy.nextDouble();
-                        validation = true;
-                    } catch (InputMismatchException notANum) {
-                        validation = false;
-                        System.out.println("Enter a number!");
-                        calcBy.nextLine();
-                    }
-                } while (!validation);
-
-                CalculateBasicFunctions.CalcAddtion(currentVal, intialVal);
+                selectAddition();
                 break;
             }
 
             case "Subtract": {
-                System.out.println("By what number would you like to subtract?");
-                do {
-                    try {
-                        currentVal = calcBy.nextDouble();
-                        validation = true;
-                    } catch (InputMismatchException notANum) {
-                        validation = false;
-                        System.out.println("Enter a number!");
-                        calcBy.nextLine();
-                    }
-                } while (!validation);
-
-                CalculateBasicFunctions.CalcSubtraction(currentVal, intialVal);
+                selectSubtraction();
                 break;
             }
 
             case "Divide": {
-                System.out.println("By what number would you like to divide?");
-                do {
-                    try {
-                        currentVal = calcBy.nextDouble();
-                        validation = true;
-                    } catch (InputMismatchException notANum) {
-                        validation = false;
-                        System.out.println("Enter a number!");
-                        calcBy.nextLine();
-                    }
-                } while (!validation);
-                CalculateBasicFunctions.CalcDivision(currentVal, intialVal);
+                selectDivision();
                 break;
             }
 
             case "Multiply": {
-                System.out.println("By what number would you like to multiply by?");
-                do {
-                    try {
-                        currentVal = calcBy.nextDouble();
-                        validation = true;
-                    } catch (InputMismatchException notANum) {
-                        validation = false;
-                        System.out.println("Enter a number!");
-                        calcBy.nextLine();
-                    }
-                } while (!validation);
-                CalculateBasicFunctions.CalcMultiplication(currentVal, intialVal);
+                selectMultiply();
                 break;
         }
 
-            case "Clear":
-                intialVal = 0;
-                System.out.println(intialVal);
+            case "Square": {
+
+                CalculateScientificFunction.CalcSquare(intialVal);
+                displayinfoAfterCalculating();
+                break;
+            }
+
+            case "Square Root": {
+
+                CalculateScientificFunction.CalcSquareRoot(intialVal);
+                displayinfoAfterCalculating();
+                break;
+            }
+
+            case "Inverse": {
+
+                CalculateScientificFunction.CalcInverse(intialVal);
+                displayinfoAfterCalculating();
+                break;
+            }
+
+            case "M":
+                System.out.println("Value stored in memory.");
+                mr = intialVal;
+                calculatedNum = mr;
+                displayinfoAfterCalculating();
+                break;
+
+            case "MC":
+                System.out.println("Memory cleared.");
+                mr = 0;
+                calculatedNum = mr;
+                clearDisplay();
+                break;
+
+            case "MRC":
+                calculatedNum = mr;
+                displayinfoAfterCalculating();
+                break;
+
+            case "Clear": {
+               Display.clearDisplay();
+                break;
+            }
 
             default:
-                System.out.println("Options: Add, Subtract, Divide, Multiply, Clear.");
+                System.out.println("Options: Add, Subtract, Divide, Multiply, Square, Square Root, Inverse," +
+                        " M, MC, MRC, Clear.");
+                displayinfoAfterCalculating();
 
         }
     }
