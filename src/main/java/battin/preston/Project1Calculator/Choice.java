@@ -85,8 +85,8 @@ public class Choice {
         displayinfoAfterCalculating();
     }
 
+
     static public void Pick(String option) {
-        boolean validation = false;
 
         switch (option) {
             case "Add": {
@@ -116,6 +116,13 @@ public class Choice {
                 break;
             }
 
+            case "Cube": {
+
+                CalculateScientificFunction.CalcCube(intialVal);
+                displayinfoAfterCalculating();
+                break;
+            }
+
             case "Square Root": {
 
                 CalculateScientificFunction.CalcSquareRoot(intialVal);
@@ -129,6 +136,11 @@ public class Choice {
                 displayinfoAfterCalculating();
                 break;
             }
+
+            case "PI":
+
+                CalculateScientificFunction.calcPI();
+                displayinfoAfterCalculating();
 
             case "M":
                 System.out.println("Value stored in memory.");

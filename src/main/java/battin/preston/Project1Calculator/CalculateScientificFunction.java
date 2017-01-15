@@ -23,4 +23,15 @@ public class CalculateScientificFunction {
         return calculatedNum = 1.0 / inverseOfNum;
     }
 
+    static public double CalcCube(double numToCube){
+
+        return calculatedNum = pow(numToCube, 3);
+    }
+
+    static public double calcPI(){
+
+       return calculatedNum = PI;
+
+    }
+
 }
