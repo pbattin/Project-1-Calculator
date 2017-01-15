@@ -28,7 +28,7 @@ public class CalculateScientificFunction {
         return calculatedNum = pow(numToCube, 3);
     }
 
-    static public double calcPI(){
+    static public double CalcPI(){
 
        return calculatedNum = PI;
 

@@ -62,7 +62,7 @@ public class Display {
 
     public static void displayinfoAfterCalculating() {
         intialVal = calculatedNum;
-        System.out.println(intialVal);
+        System.out.println(calculatedNum);
         System.out.println("What calculation would you like to perform?");
         decision = getUserInput.nextLine();
         pickMathOperation();

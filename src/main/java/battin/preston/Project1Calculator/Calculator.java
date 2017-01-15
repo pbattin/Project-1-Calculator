@@ -21,6 +21,5 @@ public class Calculator {
 
         Display menu = new Display();
         menu.setDisplay();
-
     }
 }

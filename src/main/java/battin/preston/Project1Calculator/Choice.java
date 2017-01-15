@@ -139,7 +139,7 @@ public class Choice {
 
             case "PI":
 
-                CalculateScientificFunction.calcPI();
+                CalculateScientificFunction.CalcPI();
                 displayinfoAfterCalculating();
 
             case "M":
@@ -167,8 +167,8 @@ public class Choice {
             }
 
             default:
-                System.out.println("Options: Add, Subtract, Divide, Multiply, Square, Square Root, Inverse," +
-                        " M, MC, MRC, Clear.");
+                System.out.println("Options: Add, Subtract, Divide, Multiply, Square, Cube, Square Root, Inverse," +
+                        " PI, M, MC, MRC, Clear.");
                 displayinfoAfterCalculating();
 
         }
