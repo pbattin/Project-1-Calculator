@@ -18,6 +18,7 @@ public class Display {
     static boolean validation = false;
     static Scanner getUserInput = new Scanner(System.in);
 
+
     private static void getInitialNumber() {
         boolean validation = false;
         Scanner getUserInput = new Scanner(System.in);

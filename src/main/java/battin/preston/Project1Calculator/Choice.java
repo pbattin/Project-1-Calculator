@@ -13,7 +13,7 @@ public class Choice {
     static Scanner calcBy = new Scanner(System.in);
     static double mr = 0 ;
 
-    static private void selectAddition(){
+    static private void selectAddition() {
         System.out.println("By what number would you like to add?");
         do {
             try {
