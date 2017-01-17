@@ -84,6 +84,21 @@ public class Choice {
         CalculateBasicFunctions.CalcMultiplication(currentVal, intialVal);
         displayinfoAfterCalculating();
     }
+    static public void selectM(){
+
+        System.out.println("Value stored in memory.");
+        mr = intialVal;
+        calculatedNum = mr;
+    }
+    static public void selectMC(){
+
+        System.out.println("Memory cleared.");
+        mr = 0;
+        calculatedNum = mr;
+    }
+    static public void selectMRC(){
+        calculatedNum = mr;
+    }
 
 
     static public void Pick(String option) {
@@ -143,21 +158,17 @@ public class Choice {
                 displayinfoAfterCalculating();
 
             case "M":
-                System.out.println("Value stored in memory.");
-                mr = intialVal;
-                calculatedNum = mr;
+                selectM();
                 displayinfoAfterCalculating();
                 break;
 
             case "MC":
-                System.out.println("Memory cleared.");
-                mr = 0;
-                calculatedNum = mr;
+                selectMC();
                 clearDisplay();
                 break;
 
             case "MRC":
-                calculatedNum = mr;
+                selectMRC();
                 displayinfoAfterCalculating();
                 break;
 

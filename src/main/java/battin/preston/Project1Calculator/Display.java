@@ -3,7 +3,8 @@ package battin.preston.Project1Calculator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static battin.preston.Project1Calculator.Choice.Pick;
+import static battin.preston.Project1Calculator.Choice.*;
+
 @SuppressWarnings("Duplicates")
 
 /**
@@ -30,9 +31,11 @@ public class Display {
                 intialVal = getUserInput.nextDouble();
                 validation = true;
             } catch (InputMismatchException notANumber) {
-                validation = false;
-                System.out.println("Enter a number!");
-                getUserInput.nextLine();
+                //validation = false;
+                //System.out.println("Enter a number!");
+                //getUserInput.nextLine();
+                Pick(getUserInput.nextLine());
+
             }
         } while (!validation);
         calculatedNum = intialVal;
