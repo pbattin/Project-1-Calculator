@@ -27,6 +27,7 @@ public class Display {
         System.out.println("Enter a number or command: " + intialVal);
         do {
 
+
             try {
                 intialVal = getUserInput.nextDouble();
                 validation = true;

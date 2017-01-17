@@ -21,8 +21,9 @@ public class Choice {
                 validation = true;
             } catch (InputMismatchException notANum) {
                 validation = false;
-                System.out.println("Enter a number!");
-                calcBy.nextLine();
+                Pick(calcBy.nextLine());
+                //System.out.println("Enter a number!");
+                //calcBy.nextLine();
             }
         } while (!validation);
 
@@ -38,8 +39,9 @@ public class Choice {
                 validation = true;
             } catch (InputMismatchException notANum) {
                 validation = false;
-                System.out.println("Enter a number!");
-                calcBy.nextLine();
+                Pick(calcBy.nextLine());
+                //System.out.println("Enter a number!");
+                //calcBy.nextLine();
             }
         } while (!validation);
 
@@ -55,14 +57,16 @@ public class Choice {
                 currentVal = calcBy.nextDouble();
                 while(currentVal == 0){
                     System.out.println("ERROR: CANNOT DIVIDE BY ZERO");
-                    System.out.println("Enter another number:");
-                    currentVal = calcBy.nextDouble();
+                    Pick(calcBy.nextLine());
+                    //System.out.println("Enter another number:");
+                    //currentVal = calcBy.nextDouble();
                 }
                 validation = true;
             } catch (InputMismatchException notANum) {
                 validation = false;
-                System.out.println("Enter a number!");
-                calcBy.nextLine();
+                Pick(calcBy.nextLine());
+               // System.out.println("Enter a number!");
+               // calcBy.nextLine();
             }
         } while (!validation);
         CalculateBasicFunctions.CalcDivision(currentVal, intialVal);
@@ -77,8 +81,9 @@ public class Choice {
                 validation = true;
             } catch (InputMismatchException notANum) {
                 validation = false;
-                System.out.println("Enter a number!");
-                calcBy.nextLine();
+                Pick(calcBy.nextLine());
+                //System.out.println("Enter a number!");
+                //calcBy.nextLine();
             }
         } while (!validation);
         CalculateBasicFunctions.CalcMultiplication(currentVal, intialVal);
@@ -146,7 +151,10 @@ public class Choice {
             }
 
             case "Inverse": {
-
+                if(intialVal == 0){
+                    System.out.println("CANNOT GET INVERSE OF 0.");
+                    clearDisplay();
+                }
                 CalculateScientificFunction.CalcInverse(intialVal);
                 displayinfoAfterCalculating();
                 break;
