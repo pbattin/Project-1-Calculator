@@ -24,16 +24,13 @@ public class Display {
         boolean validation = false;
         Scanner getUserInput = new Scanner(System.in);
         intialVal = 0;
-        System.out.println("Enter a number: " + intialVal);
+        System.out.println("Enter a number or command: " + intialVal);
         do {
 
             try {
                 intialVal = getUserInput.nextDouble();
                 validation = true;
             } catch (InputMismatchException notANumber) {
-                //validation = false;
-                //System.out.println("Enter a number!");
-                //getUserInput.nextLine();
                 Pick(getUserInput.nextLine());
 
             }
